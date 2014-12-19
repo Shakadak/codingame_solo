@@ -1,3 +1,3 @@
 codingame_solo
 ==============
-Learning Haskell while participating in [http://www.codingame.com](CodinGame)
+Learning Haskell while participating in [CodinGame](http://www.codingame.com)
