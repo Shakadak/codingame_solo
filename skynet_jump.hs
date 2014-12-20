@@ -43,7 +43,7 @@ stop_distance 0 = 0
 stop_distance speed = speed - 1 + stop_distance (speed - 1)
 
 max_speed_in_platform :: Int -> Int
-max_stop_distance platform_size = maximum $ takeWhile (`stop_distance_is_less_than` platform_size) [1,2..]
+max_speed_in_platform platform_size = maximum $ takeWhile (`stop_distance_is_less_than` platform_size) [1,2..]
 
 stop_distance_is_less_than :: Int -> Int -> Bool
 speed `stop_distance_is_less_than` platform_size = stop_distance speed <= platform_size
