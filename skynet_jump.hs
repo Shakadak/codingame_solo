@@ -32,8 +32,8 @@ loop gap gap_position = do
 
 action :: Int -> Int -> Int -> Int -> String
 action _ _ gap_position bike_position
-	|bike_position > gap_position = "SLOW"
-	|bike_position == gap_position - 1 = "JUMP"
+    |bike_position > gap_position = "SLOW"
+    |bike_position == gap_position - 1 = "JUMP"
 action gap speed _ _
     |speed < gap + 1 = "SPEED"
     |speed > gap + 1 = "SLOW"
