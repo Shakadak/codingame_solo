@@ -17,16 +17,13 @@ loop = do
     let sx = read (gb!!0) :: Int
     let sy = read (gb!!1) :: Int
 
-    let dump = replicateM 8 $ do
+    input <- replicateM 8 $ do
         input_line <- getLine
         let mh = read input_line :: Int
         return mh
-    input <- dump
-
-    -- hPutStrLn stderr "Debug messages..."
 
     -- either:  FIRE (ship is firing its phase cannons) or HOLD (ship is not firing).
-    putStrLn $ fire_or_hold $ input!!sx $ maximum input
+    putStrLn $ fire_or_hold (input!!sx) (maximum input)
 
     loop
 
