@@ -19,7 +19,7 @@ main = do
 loop :: [String] -> IO ()
 loop (step:path) = do
     input_line <- getLine
-    let e = read input_line :: Int -- The level of Thor's remaining energy, representing the number of moves he can still make.
+    let _ = read input_line :: Int -- The level of Thor's remaining energy, representing the number of moves he can still make.
 
     -- A single line providing the move to be made: N NE E SE S SW W or NW
     putStrLn step
@@ -27,12 +27,12 @@ loop (step:path) = do
     loop path
 loop [] = return ()
 
-readable_path :: (Int, Int) -> [String]
-readable_path (0, 0) = []
-readable_path position = readable_step position : readable_path (next_step position)
+readablePath :: (Int, Int) -> [String]
+readablePath (0, 0) = []
+readablePath position = readable_step position : readable_path (next_step position)
 
-readable_step :: (Int, Int) -> String
-readable_step (px, py) = latitude py ++ longitude px
+readableStep :: (Int, Int) -> String
+readableStep (px, py) = latitude py ++ longitude px
 
 next :: Int -> Int
 next 0 = 0
@@ -40,17 +40,17 @@ next n
     | n > 0 = n - 1
     | otherwise = n + 1
 
-next_step :: (Int, Int) -> (Int, Int)
-next_step (x, y) = (next x, next y)
+nextStep :: (Int, Int) -> (Int, Int)
+nextStep (x, y) = (next x, next y)
 
-longitude :: Int -> [Char]
+longitude :: Int -> String
 longitude l
-    | l > 0 = ['E']
-    | l < 0 = ['W']
+    | l > 0 = "E"
+    | l < 0 = "W"
     | otherwise = []
 
-latitude :: Int -> [Char]
+latitude :: Int -> String
 latitude l
-    | l > 0 = ['S']
-    | l < 0 = ['N']
+    | l > 0 = "S"
+    | l < 0 = "N"
     | otherwise = []

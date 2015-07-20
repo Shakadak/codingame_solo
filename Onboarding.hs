@@ -12,9 +12,9 @@ loop = do
     input_line <- getLine
     let count = read input_line :: Int
 
-	input <- replicateM count $ do
-		input_line <- getLine
-		return input_line
+    input <- replicateM count $ do
+        input_line <- getLine
+        return input_line
     putStrLn $ fst $ nearest_target $ as_tuple $ split_input input
     loop
 
